@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
             if (printable_chars > 2) {
                 if (show_line_numbers) {
 
-                    printf("%s%d%s | %s", ANSI_COLOR_CYAN, line_number, ANSI_COLOR_BLUE, ANSI_COLOR_RESET);
+                    printf("%s%d%s | %s", ANSI_COLOR_CYAN, line_number, ANSI_COLOR_GRAY, ANSI_COLOR_RESET);
                 }
                 for (int j = start_index; j < start_index + printable_chars; j++) {
                     printf("%c", line[j]);

@@ -1,5 +1,6 @@
 /* Console_colour
  * A simple header file to add colour to your console output.
+ * By: Lewis Evans 
  * GitHub: https://www.github.com/awesomelewis2007/c_console_colour
 */
 
@@ -13,6 +14,7 @@
 #define ANSI_COLOR_MAGENTA "\033[35m"
 #define ANSI_COLOR_CYAN "\033[36m"
 #define ANSI_COLOR_WHITE "\033[37m"
+#define ANSI_COLOR_GRAY "\033[90m"
 #define ANSI_COLOR_BLACK "\033[30m"
 #define ANSI_COLOR_RESET "\033[0m"
 
@@ -23,6 +25,7 @@
 #define ANSI_COLOUR_BOLD_MAGENTA "\033[1;35m"
 #define ANSI_COLOUR_BOLD_CYAN "\033[1;36m"
 #define ANSI_COLOUR_BOLD_WHITE "\033[1;37m"
+#define ANSI_COLOUR_BOLD_GRAY "\033[1;90m"
 #define ANSI_COLOUR_BOLD_BLACK "\033[1;30m"
 
 
@@ -33,6 +36,7 @@
 #define ANSI_COLOUR_DIM_MAGENTA "\033[2;35m"
 #define ANSI_COLOUR_DIM_CYAN "\033[2;36m"
 #define ANSI_COLOUR_DIM_WHITE "\033[2;37m"
+#define ANSI_COLOUR_DIM_GRAY "\033[2;90m"
 #define ANSI_COLOUR_DIM_BLACK "\033[2;30m"
 
 #define ANSI_COLOUR_ITALICS_RED "\033[3;31m"
@@ -42,6 +46,7 @@
 #define ANSI_COLOUR_ITALICS_MAGENTA "\033[3;35m"
 #define ANSI_COLOUR_ITALICS_CYAN "\033[3;36m"
 #define ANSI_COLOUR_ITALICS_WHITE "\033[3;37m"
+#define ANSI_COLOUR_ITALICS_GRAY "\033[3;90m"
 #define ANSI_COLOUR_ITALICS_BLACK "\033[3;30m"
 
 #define ANSI_COLOUR_UNDERLINE_RED "\033[4;31m"
@@ -51,6 +56,7 @@
 #define ANSI_COLOUR_UNDERLINE_MAGENTA "\033[4;35m"
 #define ANSI_COLOUR_UNDERLINE_CYAN "\033[4;36m"
 #define ANSI_COLOUR_UNDERLINE_WHITE "\033[4;37m"
+#define ANSI_COLOUR_UNDERLINE_GRAY "\033[4;90m"
 #define ANSI_COLOUR_UNDERLINE_BLACK "\033[4;30m"
 
 #endif // COLOUR
