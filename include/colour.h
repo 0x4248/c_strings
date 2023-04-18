@@ -1,7 +1,7 @@
 /* Console_colour
  * A simple header file to add colour to your console output.
- * By: Lewis Evans 
  * GitHub: https://www.github.com/awesomelewis2007/c_console_colour
+ * By: Lewis Evans 
 */
 
 #ifndef COLOUR
