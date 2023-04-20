@@ -1,5 +1,4 @@
-/* 
- * C Strings
+/* C Strings
  * The strings command written in C
  * Github: https://www.github.com/awesomelewis2007/c_strings
  * By: Lewis Evans
