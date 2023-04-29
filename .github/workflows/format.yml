@@ -22,16 +22,16 @@ jobs:
         run: sudo apt-get install clang-format
       - name: Format C code
         run: |
-          find . -type f -name "*.c" -exec clang-format {} -i -style="{IndentWidth: 4}"
+          find . -type f -name "*.c" -exec clang-format {} -i -style="{IndentWidth: 4}" \;
       - name: Format C++ code
         run: |
-          find . -type f -name "*.cpp" -exec clang-format {} -i -style="{IndentWidth: 4}"
+          find . -type f -name "*.cpp" -exec clang-format {} -i -style="{IndentWidth: 4}" \;
       - name: Format C header code
         run: |
-          find . -type f -name "*.h" -exec clang-format {} -i -style="{IndentWidth: 4}"
+          find . -type f -name "*.h" -exec clang-format {} -i -style="{IndentWidth: 4}" \;
       - name: Format C++ header code
         run: |
-          find . -type f -name "*.hpp" -exec clang-format {} -i -style="{IndentWidth: 4}"
+          find . -type f -name "*.hpp" -exec clang-format {} -i -style="{IndentWidth: 4}" \;
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Format javascript code with js-beautify"
+          commit_message: "Format javascript code with clang-format"
