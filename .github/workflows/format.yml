@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dependencies
-        run: apt-get install clang-format
+        run: sudo apt-get install clang-format
       - name: Format C code
         run: |
           find . -type f -name "*.c" -exec clang-format {} -i -style="{IndentWidth: 4}"
