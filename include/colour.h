@@ -2,8 +2,8 @@
  * A simple header file to add colour to your console output.
  * GitHub: https://www.github.com/awesomelewis2007/c_console_colour
  * Licence: GPL-3.0
- * By: Lewis Evans 
-*/
+ * By: Lewis Evans
+ */
 
 #ifndef COLOUR
 #define COLOUR
@@ -28,7 +28,6 @@
 #define ANSI_COLOUR_BOLD_WHITE "\033[1;37m"
 #define ANSI_COLOUR_BOLD_GRAY "\033[1;90m"
 #define ANSI_COLOUR_BOLD_BLACK "\033[1;30m"
-
 
 #define ANSI_COLOUR_DIM_RED "\033[2;31m"
 #define ANSI_COLOUR_DIM_GREEN "\033[2;32m"

@@ -2,17 +2,17 @@
  * The strings command written in C
  * Github: https://www.github.com/awesomelewis2007/c_strings
  * By: Lewis Evans
-*/
+ */
 
+#include <ctype.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#include <ctype.h>
 
 #include "colour.h"
 
-void print_help(){
+void print_help() {
     printf("Usage: strings [options] [file]\n");
     printf("Options:\n");
     printf("  -ln, --line-numbers\t\tShow line numbers\n");
@@ -21,7 +21,7 @@ void print_help(){
 
 int main(int argc, char *argv[]) {
     bool show_line_numbers = false;
-    
+
     if (argc == 1) {
         printf("Usage: strings [options] [file]\n");
         return 1;
@@ -32,7 +32,8 @@ int main(int argc, char *argv[]) {
     }
 
     if (argc > 2) {
-        if (strcmp(argv[2], "-ln") == 0 || strcmp(argv[2], "--line-numbers") == 0) {
+        if (strcmp(argv[2], "-ln") == 0 ||
+            strcmp(argv[2], "--line-numbers") == 0) {
             show_line_numbers = true;
         }
     }
@@ -59,14 +60,15 @@ int main(int argc, char *argv[]) {
             if (printable_chars > 2) {
                 if (show_line_numbers) {
 
-                    printf("%s%d%s | %s", ANSI_COLOR_CYAN, line_number, ANSI_COLOR_GRAY, ANSI_COLOR_RESET);
+                    printf("%s%d%s | %s", ANSI_COLOR_CYAN, line_number,
+                           ANSI_COLOR_GRAY, ANSI_COLOR_RESET);
                 }
-                for (int j = start_index; j < start_index + printable_chars; j++) {
+                for (int j = start_index; j < start_index + printable_chars;
+                     j++) {
                     printf("%c", line[j]);
                 }
                 printf("\n");
             }
         }
     }
-
 }
