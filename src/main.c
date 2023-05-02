@@ -17,7 +17,7 @@
 void print_help() {
     printf("Usage: strings [options] [file]\n");
     print("Strings is a command line tool that prints all printable strings "
-          "that are found in a file.\n") 
+          "that are found in a file.\n");
     printf("Options:\n");
     printf("  -ln, --line-numbers\t\tShow line numbers\n");
     printf("  -h, --help\t\t\tShow this help message\n");
