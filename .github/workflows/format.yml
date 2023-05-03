@@ -20,6 +20,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install dependencies
         run: sudo apt-get install clang-format
+      - name: Git pull
+        run: |
+          git pull
       - name: Format C code
         run: |
           find . -type f -name "*.c" -exec clang-format {} -i -style="{IndentWidth: 4}" \;
@@ -32,9 +35,6 @@ jobs:
       - name: Format C++ header code
         run: |
           find . -type f -name "*.hpp" -exec clang-format {} -i -style="{IndentWidth: 4}" \;
-      - name: Git pull
-        run: |
-          git pull
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Format C/C++ code with clang-format"
