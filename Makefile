@@ -1,6 +1,6 @@
 # C Strings
 # The strings command written in C
-# Licence: GPL-3.0
+# Licence: GNU General Public License v3.0
 # By: Lewis Evans
 
 CC = gcc
