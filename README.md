@@ -22,4 +22,5 @@ strings /bin/ls
 ```
 
 # Licence
+
 This project is licensed under the GNU GPLv3 license. See the [LICENSE](LICENSE) file for more details.
