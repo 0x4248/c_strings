@@ -18,7 +18,7 @@
 void print_help() {
     printf("Usage: strings [options] [file]\n");
     printf("Strings is a command line tool that prints all printable strings "
-          "that are found in a file.\n");
+           "that are found in a file.\n");
     printf("Options:\n");
     printf("  -ln, --line-numbers\t\tShow line numbers\n");
     printf("  -c, --context\t\t\tShow context of each string\n");
@@ -50,8 +50,7 @@ int main(int argc, char *argv[]) {
             strcmp(argv[2], "--line-numbers") == 0) {
             show_line_numbers = true;
         }
-        if (strcmp(argv[2], "-c") == 0 ||
-            strcmp(argv[2], "--context") == 0) {
+        if (strcmp(argv[2], "-c") == 0 || strcmp(argv[2], "--context") == 0) {
             show_context = true;
         }
         if (strcmp(argv[2], "-b") == 0) {
@@ -83,11 +82,11 @@ int main(int argc, char *argv[]) {
             if (printable_chars > 2) {
                 if (show_line_numbers) {
                     printf("%s%d%s | ", ANSI_COLOR_CYAN, line_number,
-                        ANSI_COLOR_RESET);
+                           ANSI_COLOR_RESET);
                 }
                 if (show_byte_position) {
                     printf("%s0x%08x%s | ", ANSI_COLOR_YELLOW, byte_position,
-                        ANSI_COLOR_RESET);
+                           ANSI_COLOR_RESET);
                 }
 
                 if (show_context) {
@@ -110,7 +109,8 @@ int main(int argc, char *argv[]) {
                     }
                 }
 
-                for (int j = start_index; j < start_index + printable_chars; j++) {
+                for (int j = start_index; j < start_index + printable_chars;
+                     j++) {
                     printf("%c", line[j]);
                 }
 
@@ -124,7 +124,8 @@ int main(int argc, char *argv[]) {
                         context_end = read;
                     }
                     printf("%s", ANSI_COLOR_GRAY);
-                    for (int j = start_index + printable_chars; j < context_end; j++) {
+                    for (int j = start_index + printable_chars; j < context_end;
+                         j++) {
                         if (isprint(line[j])) {
                             printf("%c", line[j]);
                         } else {
