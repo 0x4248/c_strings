@@ -13,20 +13,22 @@
 
 #include "colour.h"
 
-#define VERSION "1.0.1"
+#define VERSION "1.1.0"
 
 void print_help() {
     printf("Usage: strings [options] [file]\n");
-    print("Strings is a command line tool that prints all printable strings "
+    printf("Strings is a command line tool that prints all printable strings "
           "that are found in a file.\n");
     printf("Options:\n");
     printf("  -ln, --line-numbers\t\tShow line numbers\n");
+    printf("  -c, --context\t\t\tShow context of each string\n");
     printf("  -h, --help\t\t\tShow this help message\n");
     printf("  -v, --version\t\t\tShow version\n");
 }
 
 int main(int argc, char *argv[]) {
     bool show_line_numbers = false;
+    bool show_context = false;
     if (argc == 1) {
         printf("Usage: strings [options] [file]\n");
         return 1;
@@ -46,6 +48,10 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[2], "-ln") == 0 ||
             strcmp(argv[2], "--line-numbers") == 0) {
             show_line_numbers = true;
+        }
+        if (strcmp(argv[2], "-c") == 0 ||
+            strcmp(argv[2], "--context") == 0) {
+            show_context = true;
         }
     }
 
@@ -75,10 +81,63 @@ int main(int argc, char *argv[]) {
                            ANSI_COLOR_GRAY, ANSI_COLOR_RESET);
                 }
 
+                if (show_context) {
+                    int context_start = start_index - 5;
+                    if (context_start < 0) {
+                        context_start = 0;
+                    }
+                    int context_end = start_index + printable_chars + 5;
+                    if (context_end > read) {
+                        context_end = read;
+                    }
+                    for (int j = context_start; j < start_index; j++) {
+                        if (isprint(line[j])) {
+                            printf("%c", line[j]);
+                        } else {
+                            printf("%s", ANSI_COLOR_GRAY);
+                            printf(".");
+                            printf("%s", ANSI_COLOR_RESET);
+                        }
+                    }
+                }
+
                 for (int j = start_index; j < start_index + printable_chars;
                      j++) {
                     printf("%c", line[j]);
                 }
+
+                if (show_context) {
+                    int context_start = start_index - 5;
+                    if (context_start < 0) {
+                        context_start = 0;
+                    }
+                    int context_end = start_index + printable_chars + 5;
+                    if (context_end > read) {
+                        context_end = read;
+                    }
+                    printf("%s", ANSI_COLOR_GRAY);
+                    for (int j = context_start; j < start_index; j++) {
+                        if (isprint(line[j])) {
+                            printf("%c", line[j]);
+                        } else {
+                            printf(".");
+                        }
+                    }
+                    printf("%s", ANSI_COLOR_RESET);
+                    for (int j = start_index; j < start_index + printable_chars; j++) {
+                        printf("%c", line[j]);
+                    }
+                    printf("%s", ANSI_COLOR_GRAY);
+                    for (int j = start_index + printable_chars; j < context_end; j++) {
+                        if (isprint(line[j])) {
+                            printf("%c", line[j]);
+                        } else {
+                            printf(".");
+                        }
+                    }
+                    printf("%s", ANSI_COLOR_RESET);
+                }
+
                 printf("\n");
             }
         }
