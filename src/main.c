@@ -27,6 +27,7 @@ void print_help() {
 }
 
 int main(int argc, char *argv[]) {
+    bool show_byte_position = false;
     bool show_line_numbers = false;
     bool show_context = false;
     if (argc == 1) {
@@ -53,6 +54,9 @@ int main(int argc, char *argv[]) {
             strcmp(argv[2], "--context") == 0) {
             show_context = true;
         }
+        if (strcmp(argv[2], "-b") == 0) {
+            show_byte_position = true;
+        }
     }
 
     FILE *file = fopen(argv[1], "r");
@@ -64,6 +68,7 @@ int main(int argc, char *argv[]) {
     size_t len = 0;
     size_t read;
     int line_number = 0;
+    int byte_position = 0;
 
     while ((read = getline(&line, &len, file)) != -1) {
         line_number++;
@@ -77,8 +82,12 @@ int main(int argc, char *argv[]) {
 
             if (printable_chars > 2) {
                 if (show_line_numbers) {
-                    printf("%s%d%s | %s", ANSI_COLOR_CYAN, line_number,
-                           ANSI_COLOR_GRAY, ANSI_COLOR_RESET);
+                    printf("%s%d%s | ", ANSI_COLOR_CYAN, line_number,
+                        ANSI_COLOR_RESET);
+                }
+                if (show_byte_position) {
+                    printf("%s0x%08x%s | ", ANSI_COLOR_YELLOW, byte_position,
+                        ANSI_COLOR_RESET);
                 }
 
                 if (show_context) {
@@ -101,8 +110,7 @@ int main(int argc, char *argv[]) {
                     }
                 }
 
-                for (int j = start_index; j < start_index + printable_chars;
-                     j++) {
+                for (int j = start_index; j < start_index + printable_chars; j++) {
                     printf("%c", line[j]);
                 }
 
@@ -114,18 +122,6 @@ int main(int argc, char *argv[]) {
                     int context_end = start_index + printable_chars + 5;
                     if (context_end > read) {
                         context_end = read;
-                    }
-                    printf("%s", ANSI_COLOR_GRAY);
-                    for (int j = context_start; j < start_index; j++) {
-                        if (isprint(line[j])) {
-                            printf("%c", line[j]);
-                        } else {
-                            printf(".");
-                        }
-                    }
-                    printf("%s", ANSI_COLOR_RESET);
-                    for (int j = start_index; j < start_index + printable_chars; j++) {
-                        printf("%c", line[j]);
                     }
                     printf("%s", ANSI_COLOR_GRAY);
                     for (int j = start_index + printable_chars; j < context_end; j++) {
@@ -140,6 +136,7 @@ int main(int argc, char *argv[]) {
 
                 printf("\n");
             }
+            byte_position += printable_chars;
         }
     }
 }
