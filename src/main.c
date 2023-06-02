@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 
     FILE *file = fopen(argv[1], "r");
     if (file == NULL) {
-        printf("Error: File not found\n");
+        printf("%sError%s: File not found\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
         return 1;
     }
     char *line = NULL;
