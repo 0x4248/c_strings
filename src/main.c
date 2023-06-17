@@ -60,7 +60,12 @@ int main(int argc, char *argv[]) {
 
     FILE *file = fopen(argv[1], "r");
     if (file == NULL) {
-        printf("%sError%s: File not found\n", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+        printf("%sError%s: ", ANSI_COLOR_RED, ANSI_COLOR_RESET);
+        if (errno == ENOENT) {
+            printf("File not found\n");
+        } else {
+            printf("Unknown error\n");
+        }
         return 1;
     }
     char *line = NULL;
