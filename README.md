@@ -11,8 +11,10 @@ $ strings [FILE] [OPTION]
 ## Options
 
 ```
--ln --line-number
-    Print the line number of each string.
+-ln, --line-numbers     Show line numbers
+-c, --context           Show context of each string
+-h, --help              Show this help message
+-v, --version           Show version
 ```
 
 ## Examples
