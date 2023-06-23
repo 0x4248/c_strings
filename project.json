@@ -1,0 +1,15 @@
+{
+    "name": "c_strings",
+    "description": "The GNU strings command remade in C.",
+    "version": "",
+    "main_file": "src/main.c",
+    "author": "Lewis Evans",
+    "license": "GNU General Public License v3.0",
+    "url": "https://www.github.com/awesomelewis2007/c_strings",
+    "email": "none",
+    "languages": [
+        "c",
+        "c++"
+    ],
+    "actions": {}
+}
