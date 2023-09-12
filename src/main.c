@@ -33,7 +33,7 @@ void print_help() {
 
 /**
  * Main function
-*/
+ */
 int main(int argc, char *argv[]) {
     bool show_byte_position = false;
     bool show_line_numbers = false;
