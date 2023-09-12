@@ -16,6 +16,10 @@
 
 #define VERSION "1.1.0"
 
+/**
+ * Prints the help message
+ */
+
 void print_help() {
     printf("Usage: strings [options] [file]\n");
     printf("Strings is a command line tool that prints all printable strings "
@@ -27,6 +31,9 @@ void print_help() {
     printf("  -v, --version\t\t\tShow version\n");
 }
 
+/**
+ * Main function
+*/
 int main(int argc, char *argv[]) {
     bool show_byte_position = false;
     bool show_line_numbers = false;
