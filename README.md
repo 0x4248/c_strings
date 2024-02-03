@@ -25,4 +25,4 @@ strings /bin/ls
 
 # Licence
 
-This project is licensed under the GNU GPLv3 license. See the [LICENCE](LICENCE) file for more details.
+This project is licensed under the GNU general public license version 3. See the [LICENCE](LICENCE) file for more details.
