@@ -1,8 +1,8 @@
 /* C Strings
  * The strings command written in C
- * Github: https://www.github.com/lewisevans2007/c_strings
+ * Github: https://www.github.com/0x4248/c_strings
  * Licence: GNU General Public License v3.0
- * By: Lewis Evans
+ * By: 0x4248
  */
 
 #include <ctype.h>
